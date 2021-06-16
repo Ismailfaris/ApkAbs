@@ -60,10 +60,9 @@ return [
             'strict' => true,
             'engine' => null,
             'sslmode' => env('DB_SSLMODE', 'prefer'),
-            'options' => array(
-                PDO::MYSQL_ATTR_SSL_CA => '/ssl/DigiCertGlobalRootCA.crt.pem',
-                PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false
-            ),
+            'options' => (env('MYSQL_SSL') && extension_loaded('pdo_mysql')) ? [
+                PDO::MYSQL_ATTR_SSL_KEY    => '/ssl/DigiCertGlobalRootCA.crt.pem',
+            ] : []
         ],
 
         'pgsql' => [
