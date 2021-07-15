@@ -76,9 +76,9 @@
                         <ul class="menu" id="responsive">
                             <li><a href="{{ url('acceuil') }}" class="{{(Request::segment(1) == 'acceuil')||(Request::segment(1) == '') ? 'current' : null }}">Accueil</a></li>
                             <li><a href="{{ url('Actualités') }}" class="{{ Request::segment(1) === 'Actualités' ? 'current' : null }}">Actualités</a></li>
-                            <li><a href="{{ url('services') }}" class="{{ Request::segment(1) === 'services' ? 'current' : null }}">Compétences</a>
+                            <li><a href="{{ url('services') }}" class="{{ Request::segment(1) === 'services' ? 'current' : null }}">Nos sérvices</a>
                                 <!-- Second Level / Start -->
-                                <ul>
+                                {{-- <ul>
                                     <li><a href="strategie.html">Stratégie</a></li>
                                     <li><a href="finance.html">Finance</a></li>
                                     <li><a href="qualite.html">Qualité</a></li>
@@ -88,13 +88,14 @@
                                     <li><a href="achat.html">Achat &amp; Approvisionnement</a></li>
                                     <li><a href="logistique.html">Logistique </a></li>
                                     <li><a href="production.html">Production </a></li>
-                                </ul>
+                                </ul> --}}
                                 <!-- Second Level / End -->
                             </li>
                             <li><a href="{{ url('partenaires') }}" class="{{ Request::segment(1) === 'partenaires' ? 'current' : null }}">Partenaires</a></li>
                             <li><a href="{{ url('contact') }}" class="{{ Request::segment(1) === 'contact' ? 'current' : null }}">Contact</a></li>
                             <li><a href="{{ url('locaux') }}" class="{{ Request::segment(1) === 'locaux' ? 'current' : null }}">Locaux</a></li>
                             <li><a href="{{ url('références') }}" class="{{ Request::segment(1) === 'références' ? 'current' : null }}">Références</a></li>
+                            <li><a href="{{ url('références') }}" class="{{ Request::segment(1) === 'références' ? 'current' : null }}">hey</a></li>
                         </ul>
                     </div>
                 </nav>

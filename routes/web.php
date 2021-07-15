@@ -8,6 +8,7 @@ use App\Http\Controllers\linkedin_posts_controller;
 use App\Http\Controllers\logosController;
 use Facade\FlareClient\View;
 use Illuminate\Support\Facades\Route;
+
 require __DIR__ . '/auth.php';
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,7 @@ require __DIR__ . '/auth.php';
 | contains the "web" middleware group. Now create something great!
 |
 */
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 /* --------------- CLIENT ZONE HERE !!! --------------- */
 
 Route::get('/', function () {
@@ -31,6 +32,11 @@ Route::get('/acceuil', function () {
 
 Route::get('/services', function () {
     return view('services');
+});
+
+Route::get('about', function () {
+    return view('services');
+
 });
 
 Route::get('/contact', [ContactUsFormController::class, 'createForm']);
@@ -133,7 +139,7 @@ Route::get('/dashboard/dashmodifybyid/edit/{id}', [NewsController::class, 'showe
 Route::post('/dashboard/dashmodifybyid/edit', [NewsController::class, 'update']);
 
 /* ooo Logos ooo */
-Route::get('/dashboard/dashlogos-add',[logosController::class,'create'])->middleware(['auth'])->name('dashboard/dashlogos-add');
+Route::get('/dashboard/dashlogos-add', [logosController::class, 'create'])->middleware(['auth'])->name('dashboard/dashlogos-add');
 Route::post('dashboard/dashlogos-add', [logosController::class, 'addlogo']);
 
 
@@ -164,8 +170,7 @@ Route::delete('/social-media/linkedin/account/delete/{id}', [linkedin_token_cont
 /*
 *   Posts
 */
-Route::get('dashboard/social-media/linkedin/posts', [linkedin_posts_controller::class,'index']);
+Route::get('dashboard/social-media/linkedin/posts', [linkedin_posts_controller::class, 'index']);
 Route::get('dashboard/social-media/linkedin/post/add', [linkedin_posts_controller::class, 'create']);
 Route::post('dashboard/social-media/linkedin/post/add', [linkedin_posts_controller::class, 'store']);
-Route::delete('dashboard/social-media/linkedin/posts/delete/{id}', [linkedin_posts_controller::class,'destroy']);
-
+Route::delete('dashboard/social-media/linkedin/posts/delete/{id}', [linkedin_posts_controller::class, 'destroy']);
