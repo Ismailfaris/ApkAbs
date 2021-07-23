@@ -13,7 +13,9 @@
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('assets/vendor2/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('assets/css/style2.css') }}" rel="stylesheet">
@@ -31,7 +33,8 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
 
-                <div class="sidebar-brand-text mx-3"><img style="width: 70%;" src="../assets/img/logo.png" alt=""> </div>
+                <div class="sidebar-brand-text mx-3"><img style="width: 70%;" src="../assets/img/logo.png" alt="">
+                </div>
             </a>
 
             <!-- Divider -->
@@ -39,7 +42,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="{{url('dashboard/dashhome')}}">
+                <a class="nav-link" href="{{ url('dashboard/dashhome') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -53,7 +56,8 @@
             </div>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse1"
+                    aria-expanded="true" aria-controls="collapse1">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Actualités</span>
                 </a>
@@ -66,18 +70,20 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse3" aria-expanded="true" aria-controls="collapse3">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse3"
+                    aria-expanded="true" aria-controls="collapse3">
                     <i class="fas fa-box"></i>
                     <span>Références</span>
                 </a>
                 <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a  class="collapse-item" href="{{url('dashboard/dashlogos-add')}}">Ajouter</a>
-                        <a class="collapse-item" href="{{ url('dashboard/dashlogos-modify') }}">Modifier & Supprimer</a>
+                        <a class="collapse-item" href="{{ url('dashboard/dashlogos-add') }}">Ajouter</a>
+                        <a class="collapse-item" href="{{ url('dashboard/dashlogos-modify') }}">Modifier &
+                            Supprimer</a>
                     </div>
                 </div>
             </li>
-        
+
 
             <!-- htal l hna -->
 
@@ -92,13 +98,14 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="" data-toggle="collapse" data-target="#linkedin" aria-expanded="true" aria-controls="linkedin">
+                <a class="nav-link" href="" data-toggle="collapse" data-target="#linkedin" aria-expanded="true"
+                    aria-controls="linkedin">
                     <i class="fab fa-linkedin"></i>
                     <span>Linkedin</span>
                 </a>
                 <div id="linkedin" class="collapse" aria-labelledby="linkedin" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a  class="collapse-item" href="{{ url('/dashboard/social-media/linkedin') }}">Comptes</a>
+                        <a class="collapse-item" href="{{ url('/dashboard/social-media/linkedin') }}">Comptes</a>
                         <a class="collapse-item" href="{{ url('/dashboard/social-media/linkedin/posts') }}">Posts</a>
                     </div>
                 </div>
@@ -131,7 +138,8 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                    aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Pages</span>
                 </a>
@@ -154,6 +162,12 @@
                 <a class="nav-link" href="charts.html">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Charts</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('dashboard/plans') }}">
+                    <i class="fas fa-fw fa-dollar"></i>
+                    <span>Plans</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
@@ -229,7 +243,7 @@
     <!-- Page level custom scripts -->
     <script src="{{ asset('assets/js2/demo/chart-area-demo.js') }}"></script>
     <script src="{{ asset('assets/js2/demo/chart-pie-demo.js') }}"></script>
-
+    @yield('scripts')
 </body>
 
 </html>

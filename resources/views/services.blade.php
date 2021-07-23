@@ -1,6 +1,11 @@
 @extends('layouts/layout')
 
 @section('content')
+    @if (session()->has('success'))
+        <div class="alert alert-success">
+            {{ session()->get('success') }}
+        </div>
+    @endif
 
     <div class="container mb-3">
         <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
@@ -24,7 +29,8 @@
                         <li>
                             Accès au centre d'aide</li>
                     </ul>
-                    <button type="button" class="btn btn-lg btn-block btn-outline-primary">Acheter</button>
+                    <a type="button" class="btn btn-lg btn-block btn-outline-primary"
+                        href="{{ url('plans/show/1') }}">Acheter</a>
                 </div>
             </div>
             <div class="card mb-4 box-shadow">
