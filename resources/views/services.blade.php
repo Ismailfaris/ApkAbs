@@ -20,19 +20,26 @@
 
                 <div class="card mb-4 box-shadow">
                     <div class="card-header">
-                        <h4 class="my-0 font-weight-normal">{{$plan->name}}</h4>
+                        <h4 class="my-0 font-weight-normal">{{ $plan->name }}</h4>
                     </div>
                     <div class="card-body">
-                        <h1 class="card-title pricing-card-title">{{$plan->cost}} dh<small class="text-muted">/ mo</small></h1>
+                        <h1 class="card-title pricing-card-title">{{ $plan->cost }} dh<small class="text-muted">/
+                                mo</small></h1>
                         <ul class="list-unstyled mt-3 mb-4">
-                            <li>gestion de 3 modules de finance</li>
-                            <li>2 GB de stockage </li>
+                            @php $details = explode(',' , $plan->description) @endphp
+
+                            @foreach ($details as $detail)
+
+                                <li>{{ $detail }}</li>
+                            @endforeach
+
+                            {{-- <li>2 GB de stockage </li>
                             <li>support par email</li>
                             <li>
-                                Accès au centre d'aide</li>
+                                Accès au centre d'aide</li> --}}
                         </ul>
                         <a type="button" class="btn btn-lg btn-block btn-outline-primary"
-                            href="{{ url('plans/show/1') }}">Acheter</a>
+                            href="{{ url('plans/show/'.$plan->id) }}">Acheter</a>
                     </div>
                 </div>
             @endforeach
@@ -71,5 +78,5 @@
             </div> --}}
         </div>
 
-    </div>
+
     @endsection

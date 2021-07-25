@@ -35,7 +35,7 @@ Route::get('/acceuil', function () {
     return view('index');
 });
 
-Route::get('services', [PlanController::class, 'index_services']);
+Route::get('services', [PlanController::class, 'index_services'])->name('services');
 
 
 Route::get('about', function () {
