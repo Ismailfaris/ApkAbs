@@ -49,7 +49,7 @@
                         @foreach($refs as $ref)
                         <tr>
                             <td>
-                                <img class="logos" style="padding-left: 30%;width: 60%;" src="{{ asset('storage/'.$ref->logo) }}" alt="">
+                                <img class="logos"  src="{{ asset('storage/'.$ref->logo) }}" alt="">
                             </td>
                             <td>
                                 <p class="logos">{{ $ref['order'] }}</p>
