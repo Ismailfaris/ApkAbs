@@ -19,6 +19,7 @@
   <!-- ======= Portfolio Section ======= -->
   <section id="portfolio" class="portfolio">
     <div class="container">
+     <div class="row" >
       <div>
         <p>ABS COMPETENCES a développé une politique active de partenariats, notamment pour asseoir sa présence et pour mieux répondre à vos attentes et vous apporter des solutions de financement opportunes :</p>
       </div>
@@ -178,7 +179,7 @@
         </div>
 
       </div>
-
+    </div>
     </div>
     </div>
   </section>

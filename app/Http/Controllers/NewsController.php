@@ -54,6 +54,11 @@ class NewsController extends Controller
         $actualite = actualite::find($id);
         return view('/dashboard/dashmodifybyid', ['actualite' => $actualite]);
     }
+    function shownews($id)
+    {
+        $actualite = actualite::find($id);
+        return view('/News-details', ['actualite' => $actualite]);
+    }
     function update(Request $req)
     {
         $actualite = actualite::find($req->id);

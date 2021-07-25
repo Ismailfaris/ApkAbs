@@ -31,7 +31,7 @@
             @foreach($actualites as $actualite)
             <br><br>
             <div class="entry-img">
-              <img src="{{ asset('storage/'.$actualite->image) }}" alt="" class="img-fluid">
+              <img style="width: -webkit-fill-available;" src="{{ asset('storage/'.$actualite->image) }}" alt="" class="img-fluid">
             </div>
 
             <h2 class="entry-title">
@@ -46,12 +46,13 @@
 
             <div class="entry-content">
               <p>
-              {{ $actualite['description'] }}
+              {{ $actualite['description'] }}...
               </p>
               
               <div class="read-more">
-                <a href="/blog-single">Read More</a>
+                <a href="{{ '/News-details/'.$actualite['id'] }}">Voir plus</a>
               </div>
+              <br>
             </div>
             @endforeach
           </article><!-- End blog entry -->

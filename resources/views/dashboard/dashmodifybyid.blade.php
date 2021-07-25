@@ -1,7 +1,7 @@
 @extends('layouts/dashboard')
 
 @section('content')
-<div class="d-flex justify-content-between align-items-center">
+<div class="d-flex justify-content-between align-items-center"> 
     <h2 style="width: 100%;height:10%;text-align:center;">Modifier a l'accueil</h2>
 
 </div>

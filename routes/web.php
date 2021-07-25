@@ -52,6 +52,12 @@ Route::get('/partenaires', function () {
     return view('portfolio');
 });
 
+Route::get('/News-details', function () {
+    return view('News-details');
+});
+
+Route::get('/News-details/{id}', [NewsController::class, 'shownews'])->name('News-details');
+
 /********************************************************* */
 Route::get('/BERD-details', function () {
     return view('portfolio-details.BERD-details');
@@ -114,6 +120,7 @@ Route::get('/dashboard/home', function () {
 
 
 Route::get('blog-single/{id}', [NewsController::class, 'showBlogsingle']);
+
 
 /* --------------- DASHBOARD ZONE HERE !!! --------------- */
 

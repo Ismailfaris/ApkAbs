@@ -8,8 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <title>Admin - Dashboard</title>
+    <title>Abs - Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('assets/vendor2/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
