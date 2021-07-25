@@ -16,24 +16,35 @@
         </div>
 
         <div class="card-deck mb-3 text-center">
-            <div class="card mb-4 box-shadow">
-                <div class="card-header">
-                    <h4 class="my-0 font-weight-normal">Pack 1</h4>
+            @foreach ($plans as $plan)
+
+                <div class="card mb-4 box-shadow">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">{{ $plan->name }}</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">{{ $plan->cost }} dh<small class="text-muted">/
+                                mo</small></h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            @php $details = explode(',' , $plan->description) @endphp
+
+                            @foreach ($details as $detail)
+
+                                <li>{{ $detail }}</li>
+                            @endforeach
+
+                            {{-- <li>2 GB de stockage </li>
+                            <li>support par email</li>
+                            <li>
+                                Accès au centre d'aide</li> --}}
+                        </ul>
+                        <a type="button" class="btn btn-lg btn-block btn-outline-primary"
+                            href="{{ url('plans/show/'.$plan->id) }}">Acheter</a>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <h1 class="card-title pricing-card-title">2000 Dh<small class="text-muted">/ mo</small></h1>
-                    <ul class="list-unstyled mt-3 mb-4">
-                        <li>gestion de 3 modules de finance</li>
-                        <li>2 GB de stockage </li>
-                        <li>support par email</li>
-                        <li>
-                            Accès au centre d'aide</li>
-                    </ul>
-                    <a type="button" class="btn btn-lg btn-block btn-outline-primary"
-                        href="{{ url('plans/show/1') }}">Acheter</a>
-                </div>
-            </div>
-            <div class="card mb-4 box-shadow">
+            @endforeach
+
+            {{-- <div class="card mb-4 box-shadow">
                 <div class="card-header">
                     <h4 class="my-0 font-weight-normal">Pack 2</h4>
                 </div>
@@ -64,8 +75,8 @@
                     </ul>
                     <button type="button" class="btn btn-lg btn-block btn-primary">Acheter</button>
                 </div>
-            </div>
+            </div> --}}
         </div>
 
-    </div>
+
     @endsection

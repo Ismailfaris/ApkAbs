@@ -33,7 +33,7 @@
                 <img style="width: 25%;" class="h-25" src="{{asset('assets/img/logo.png')}}" alt="">
             </div>
                 <div class="text-center my-2">
-                    <h4>You will be charged ${{ number_format($plan->cost, 2) }} for {{ $plan->name }} Plan</h4>
+                    <h4>You will be charged {{ number_format($plan->cost, 2) }} dh for {{ $plan->name }} Plan</h4>
                 </div>
                 <div class="card ">
                     <form action="{{ route('subscription.create') }}" method="post" id="payment-form">

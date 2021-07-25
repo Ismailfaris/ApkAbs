@@ -19,6 +19,14 @@ class PlanController extends Controller
         return view('plans.index', compact('plans'));
     }
 
+
+    public function index_services()
+
+    {
+
+        $plans = Plan::all();
+        return view('services', compact('plans'));
+    }
     /**
      * Show the Plan.
      *
@@ -27,7 +35,7 @@ class PlanController extends Controller
     public function show(int $id, Request $request)
     {
         $plan = Plan::findOrFail($id);
-        $paymentMethods = \Auth::user()->paymentMethods();
+        // $paymentMethods = \Auth::user()->paymentMethods();
 
         $intent = \Auth::user()->createSetupIntent();
 

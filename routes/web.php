@@ -8,9 +8,11 @@ use App\Http\Controllers\linkedin_posts_controller;
 use App\Http\Controllers\logosController;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\subscriptionController;
+use App\Models\User;
 use Facade\FlareClient\View;
 use Illuminate\Support\Facades\Route;
 use Stripe\Plan;
+use Laravel\Cashier\Cashier;
 
 require __DIR__ . '/auth.php';
 /*
@@ -33,9 +35,8 @@ Route::get('/acceuil', function () {
     return view('index');
 });
 
-Route::get('/services', function () {
-    return view('services');
-})->name('services');
+Route::get('services', [PlanController::class, 'index_services'])->name('services');
+
 
 Route::get('about', function () {
     return view('services');
@@ -187,7 +188,7 @@ Route::get('dashboard/social-media/linkedin/posts/delete', [linkedin_posts_contr
 Route::get('/test', [linkedin_posts_controller::class, 'test']);
 //Routes for create Plan
 
-Route::group(['middleware' => 'auth'], function() {
+Route::group(['middleware' => 'auth'], function () {
     Route::get('create/plan', 'SubscriptionController@createPlan')->name('create.plan');
     Route::post('store/plan', [subscriptionController::class, 'storePlan'])->name('store.plan');
 
@@ -195,6 +196,13 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('dashboard/plans/create', function () {
         return view('plans.add');
     });
-    Route::get('plans/show/{id}', [PlanController::class  , 'show'])->name('plans.show');
-    Route::post('/subscription', [subscriptionController::class , 'create'])->name('subscription.create');
+    Route::get('plans/show/{id}', [PlanController::class, 'show'])->name('plans.show');
+    Route::post('/subscription', [subscriptionController::class, 'create'])->name('subscription.create');
+    Route::get('dashboard/clients', function () {
+        $users = User::all();
+        // $user = $users[0];
+        // dd( $user->subscriptions()->first());
+
+        return view('clients.index', compact('users'));
+    });
 });
