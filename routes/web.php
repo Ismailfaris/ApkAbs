@@ -168,7 +168,6 @@ Route::get('/dashboard/social-media/linkedin/get-teken', [linkedin_token_control
 Route::get('/dashboard/social-media/linkedin/account/add/{id}', [linkedin_account_controller::class, 'create']);
 Route::get('/dashboard/social-media/linkedin/account/clear', [linkedin_account_controller::class, 'logout']);
 Route::delete('/social-media/linkedin/account/delete/{id}', [linkedin_token_controller::class, 'destroy']);
-
 /*
 *   Posts
 */
@@ -176,8 +175,9 @@ Route::get('dashboard/social-media/linkedin/posts', [linkedin_posts_controller::
 Route::get('dashboard/social-media/linkedin/post/add', [linkedin_posts_controller::class, 'create']);
 Route::post('dashboard/social-media/linkedin/post/add', [linkedin_posts_controller::class, 'store']);
 Route::delete('dashboard/social-media/linkedin/posts/delete/{id}', [linkedin_posts_controller::class, 'destroy']);
-
-
+//This rout is just for testing purpose, delete it later if I forget to do that :)
+Route::get('dashboard/social-media/linkedin/posts/delete', [linkedin_posts_controller::class, 'custom_share_delete']);
+Route::get('/test', [linkedin_posts_controller::class, 'test']);
 //Routes for create Plan
 
 Route::group(['middleware' => 'auth'], function() {
