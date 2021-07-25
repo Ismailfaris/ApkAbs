@@ -169,6 +169,11 @@
                     <i class="fas fa-fw fa-dollar"></i>
                     <span>Plans</span></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('dashboard/clients') }}">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>Clients</span></a>
+            </li>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
