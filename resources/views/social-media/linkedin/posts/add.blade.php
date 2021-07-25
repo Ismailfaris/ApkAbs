@@ -12,86 +12,74 @@
     <form action="{{ url('dashboard/social-media/linkedin/post/add') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
-
-            <label>Titre</label>
-            <input type="text" class="form-control" name="text" placeholder="Entre votre texte ici...">
-            <br>
             <label>Type du  post</label>
             <br>
-            <script>
-                var text = document.getElementById("rb_text");
-                var article = document.getElementById("rb_article");
-                var image = document.getElementById("rb_image");
-                if(rb_text.checked){
-                    
-                }
-                function content_type_toggle(elem){
-                    var content_text = document.getElementById('post-text');
-                    var content_image = document.getElementById('post-image');
-                    var content_article = document.getElementById('post-article');
-                    content_text.classList = [];
-                    if(elem.checked){
-                        switch(elem.value)
-                        {
-                            case 'image':
-                                content_image.className = 'show-post';
-                                content_text.className = 'hide-post';
-                                content_article.className = 'hide-post';
-                                break;
-                            case 'text':
-                                content_text.className = 'show-post';
-                                content_image.className = 'hide-post';
-                                content_article.className = 'hide-post';
-                                break;
-                            case 'article':
-                                content_article.className = 'show-post';
-                                content_text.className = 'hide-post';
-                                content_image.className = 'hide-post';
-                        }
-                        
-                    }
-                }
-            </script>
             <div class="form-check form-check-inline">
-<<<<<<< HEAD
-                <input class="form-check-input-danger" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="text">
-=======
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="rb_text" value="text" onchange="content_type_toggle(this)">
->>>>>>> 0960a9058c02d1bb0f97c6847f89686fd7fe546a
-                <label class="form-check-label" for="inlineRadio1">Text</label>
+                <input class="form-check-input" type="radio" name="rb_post" id="rb_text" value="text">
+                <label class="form-check-label" for="rb_text">Text</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="rb_article" value="article" onchange="content_type_toggle(this)">
-                <label class="form-check-label" for="inlineRadio2">Article</label>
+                <input class="form-check-input" type="radio" name="rb_post" id="rb_article" value="article" >
+                <label class="form-check-label" for="rb_article">Article</label>
             </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="rb_image" value="image" onchange="content_type_toggle(this)">
-                <label class="form-check-label" for="inlineRadio3">Image</label>
-            </div>
+            <!--<div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="rb_post" id="rb_image" value="image">
+                <label class="form-check-label" for="rb_image">Image</label>
+            </div>-->
             <br>
             <br>
-            <div id="post-image" class="post-content">
+            <!--<div id="image" class="hide">
+                <label>Titre</label>
+                <input type="text" class="form-control" name="img_text" placeholder="Titre pour votre image">
+                <br>
+                <label>Status</label>
+                <input type="text" class="form-control" name="img_commentary" placeholder="De quoi parle votre image ? ">
+                <br>
+                <input type="hidden" id="path" name="path">
                 <label>Select Image</label>
-                <input name="image" class="form-control-file" type="file" accept="image/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
+                <input name="image" id="input_image" class="form-control-file" type="file" accept="image/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0]);document.getElementById('path').value = window.URL.createObjectURL(this.files[0]);">
                 <br>
                 <img id="output" src="" style="height: 20%;width:20%">
                 <br>
                 <br>
                 <label>Description</label>
-                <textarea class="form-control" name="description" rows="3"></textarea>
-            </div>
-            <div id="post-text" class="post-content">
+                <textarea class="form-control" name="img_description" rows="3" placeholder="Description de votre image"></textarea>
+            </div>-->
+            <div id="text" class="hide">
                 <label>Text</label>
-                <textarea class="form-control" name="description" rows="3"></textarea>
+                <textarea class="form-control" name="txt_text" rows="3"></textarea>
             </div>
-            <div id="post-article" class="post-content">
+            <div id="article" class="hide">
+                <label>Titre</label>
+                <input type="text" class="form-control" name="text" placeholder="Titre de votre article">
+                <br>
+                <label>Commentaire </label>
+                <input type="text" class="form-control" name="commentary" placeholder="De quoi parle votre aticle ? ">
                 <label>Lien</label>
-                <input type="text" class="form-control" name="link">
+                <input type="text" class="form-control" name="link" placeholder="Lien de votre article">
                 <br>
                 <label>Dexcription</label>
-                <textarea class="form-control" name="description" rows="3"></textarea>
-                
+                <textarea class="form-control" name="description" rows="3" placeholder="Description de votre article"></textarea>
             </div>
+            <script>
+                $('input[name="rb_post"]').on('change', function() {
+                    var rd = this;
+                // this, in the anonymous function, refers to the changed-<input>:
+                // select the element(s) you want to show/hide:
+                $('.hide')
+                    // pass a Boolean to the method, if the numeric-value of the changed-<input>
+                    // is exactly equal to 2 and that <input> is checked, the .business-fields
+                    // will be shown:
+                    .each(function (e) {
+                        if(rd.value == this.id && rd.checked)
+                            this.style = "display: block";
+                        else 
+                            this.style = "display: none";
+                    });
+                // trigger the change event, to show/hide the .business-fields element(s) on
+                // page-load:
+                }).change();
+            </script>
             <br>
             <br>
             <label>Visibilité</label>
@@ -107,6 +95,21 @@
             <br>
             <br>
             <button type="submit" class="btn btn-outline-danger">Ajouter</button>
+            <script>
+                document.querySelector('.btn-outline-danger').addEventListener("click", function(event) {
+                    var checked = false;
+                    var rb_array = document.querySelectorAll('input[name="rb_post"]');
+                    for (var i = 0; i < rb_array.length; i++) {
+                        if(rb_array[i].checked) {
+                            checked = true;
+                        }
+                     }
+                    if(!checked){
+                        alert('Merci de selectionner un type pour votre poste !');
+                        event.preventDefault();
+                    }
+                }, false);
+            </script>
 
         </div>
 

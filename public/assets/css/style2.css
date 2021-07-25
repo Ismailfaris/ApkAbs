@@ -12075,24 +12075,12 @@ table.table td .add {
     height: 100%;
     width: 100%;
 }
-<<<<<<< HEAD
 .logos {
     max-width: 30%;
     display: block;
     margin-left: auto;
     margin-right: auto;
-=======
-.post-content{
-    display: none;
 }
-/*
-.post-content-article,.post-content-image, .post-content-text{
-    display: block;
-}*/
-.show-post{
-    display: block;
-}
-.hide-post{
+.hide {
     display: none;
->>>>>>> 0960a9058c02d1bb0f97c6847f89686fd7fe546a
 }

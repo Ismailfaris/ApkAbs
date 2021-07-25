@@ -18,7 +18,7 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('assets/css/style2.css') }}" rel="stylesheet">
-
+    <script src="{{ asset('assets/vendor2/jquery/jquery.min.js') }}"></script>
 </head>
 
 <body id="page-top">
@@ -224,7 +224,7 @@
 
 
     <!-- Bootstrap core JavaScript-->
-    <script src="{{ asset('assets/vendor2/jquery/jquery.min.js') }}"></script>
+   
     <script src="{{ asset('assets/vendor2/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
     <!-- Core plugin JavaScript-->
