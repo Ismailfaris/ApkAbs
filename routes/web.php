@@ -117,7 +117,7 @@ Route::get('/références', [logosController::class, 'showref']);
 
 Route::get('/dashboard/home', function () {
     return view('dashboard/dashhome');
-})->middleware(['auth'])->name('dashboard/dashhome');
+})->middleware(['auth', 'role'])->name('dashboard/dashhome');
 
 
 Route::get('blog-single/{id}', [NewsController::class, 'showBlogsingle']);
@@ -132,37 +132,37 @@ Route::get('blog-single/{id}', [NewsController::class, 'showBlogsingle']);
 
 Route::get('/dashboard/dashhome', function () {
     return view('dashboard/dashhome');
-})->middleware(['auth'])->name('dashboard/dashhome');
+})->middleware(['auth', 'role'])->name('dashboard/dashhome');
 
 
 /* ooo Actualités ooo */
 
-Route::view('dashboard/dashnews', 'dashboard/dashnews');
-Route::post('dashboard/dashnews', [NewsController::class, 'adddata']);
+Route::view('dashboard/dashnews', 'dashboard/dashnews')->middleware(['auth', 'role']);
+Route::post('dashboard/dashnews', [NewsController::class, 'adddata'])->middleware(['auth', 'role']);
 Route::get('/dashboard/dashnewsmodify', function () {
     return view('/dashboard/dashnewsmodify');
-});
-Route::get('/dashboard/dashnewsmodify', [NewsController::class, 'show']);
-Route::get('dashboard/dashnewsmodify/delete/{id}', [NewsController::class, 'delete']);
-Route::view('dashboard/dashmodifybyid', 'dashboard/dashmodifybyid');
-Route::get('/dashboard/dashmodifybyid/edit/{id}', [NewsController::class, 'showedit'])->middleware(['auth'])->name('dashboard/dashhome');
+})->middleware(['auth', 'role']);
+Route::get('/dashboard/dashnewsmodify', [NewsController::class, 'show'])->middleware(['auth', 'role']);
+Route::get('dashboard/dashnewsmodify/delete/{id}', [NewsController::class, 'delete'])->middleware(['auth', 'role']);
+Route::view('dashboard/dashmodifybyid', 'dashboard/dashmodifybyid')->middleware(['auth', 'role']);
+Route::get('/dashboard/dashmodifybyid/edit/{id}', [NewsController::class, 'showedit'])->middleware(['auth', 'role'])->name('dashboard/dashhome');
 Route::post('/dashboard/dashmodifybyid/edit', [NewsController::class, 'update']);
 
 /* ooo Logos ooo */
 Route::get('/dashboard/dashlogos-add', [logosController::class, 'create'])->middleware(['auth'])->name('dashboard/dashlogos-add');
-Route::post('dashboard/dashlogos-add', [logosController::class, 'addlogo']);
+Route::post('dashboard/dashlogos-add', [logosController::class, 'addlogo'])->middleware(['auth', 'role']);
 
 
 Route::get('/dashboard/dashlogos-modify', function () {
     return view('dashboard/dashlogos-modify');
-})->middleware(['auth'])->name('dashboard/dashlogos-modify');
+})->middleware(['auth', 'role'])->name('dashboard/dashlogos-modify');
 
-Route::get('/dashboard/dashlogos-modify', [logosController::class, 'searchlogo']);
+Route::get('/dashboard/dashlogos-modify', [logosController::class, 'searchlogo'])->middleware(['auth', 'role']);
 
-Route::get('dashboard/delete/{id}', [logosController::class, 'logodelete']);
-Route::view('dashboard/dashlogos-modifybyid', 'dashboard/dashlogos-modifybyid');
-Route::get('/dashboard/dashlogos-modifybyid/edit/{id}', [logosController::class, 'showedit'])->middleware(['auth'])->name('dashboard/dashhome');
-Route::post('/dashboard/dashlogos-modifybyid/edit/{id}', [logosController::class, 'logoshowedit']);/**/
+Route::get('dashboard/delete/{id}', [logosController::class, 'logodelete'])->middleware(['auth', 'role']);
+Route::view('dashboard/dashlogos-modifybyid', 'dashboard/dashlogos-modifybyid')->middleware(['auth', 'role']);
+Route::get('/dashboard/dashlogos-modifybyid/edit/{id}', [logosController::class, 'showedit'])->middleware(['auth', 'role'])->name('dashboard/dashhome');
+Route::post('/dashboard/dashlogos-modifybyid/edit/{id}', [logosController::class, 'logoshowedit'])->middleware(['auth', 'role']);/**/
 
 /* --------------- MOUAD ZONE --------------- */
 
@@ -171,24 +171,24 @@ Route::post('/dashboard/dashlogos-modifybyid/edit/{id}', [logosController::class
 /*
 *   Account
 */
-Route::get('/dashboard/social-media/linkedin', [linkedin_account_controller::class, 'index']);
-Route::get('/dashboard/social-media/linkedin/get-teken', [linkedin_token_controller::class, 'create']);
-Route::get('/dashboard/social-media/linkedin/account/add/{id}', [linkedin_account_controller::class, 'create']);
-Route::get('/dashboard/social-media/linkedin/account/clear', [linkedin_account_controller::class, 'logout']);
-Route::delete('/social-media/linkedin/account/delete/{id}', [linkedin_token_controller::class, 'destroy']);
+Route::get('/dashboard/social-media/linkedin', [linkedin_account_controller::class, 'index'])->middleware(['auth', 'role']);
+Route::get('/dashboard/social-media/linkedin/get-teken', [linkedin_token_controller::class, 'create'])->middleware(['auth', 'role']);
+Route::get('/dashboard/social-media/linkedin/account/add/{id}', [linkedin_account_controller::class, 'create'])->middleware(['auth', 'role']);
+Route::get('/dashboard/social-media/linkedin/account/clear', [linkedin_account_controller::class, 'logout'])->middleware(['auth', 'role']);
+Route::delete('/social-media/linkedin/account/delete/{id}', [linkedin_token_controller::class, 'destroy'])->middleware(['auth', 'role']);
 /*
 *   Posts
 */
-Route::get('dashboard/social-media/linkedin/posts', [linkedin_posts_controller::class, 'index']);
-Route::get('dashboard/social-media/linkedin/post/add', [linkedin_posts_controller::class, 'create']);
-Route::post('dashboard/social-media/linkedin/post/add', [linkedin_posts_controller::class, 'store']);
-Route::delete('dashboard/social-media/linkedin/posts/delete/{id}', [linkedin_posts_controller::class, 'destroy']);
+Route::get('dashboard/social-media/linkedin/posts', [linkedin_posts_controller::class, 'index'])->middleware(['auth', 'role']);
+Route::get('dashboard/social-media/linkedin/post/add', [linkedin_posts_controller::class, 'create'])->middleware(['auth', 'role']);
+Route::post('dashboard/social-media/linkedin/post/add', [linkedin_posts_controller::class, 'store'])->middleware(['auth', 'role']);
+Route::delete('dashboard/social-media/linkedin/posts/delete/{id}', [linkedin_posts_controller::class, 'destroy'])->middleware(['auth', 'role']);
 //This rout is just for testing purpose, delete it later if I forget to do that :)
-Route::get('dashboard/social-media/linkedin/posts/delete', [linkedin_posts_controller::class, 'custom_share_delete']);
-Route::get('/test', [linkedin_posts_controller::class, 'test']);
+Route::get('dashboard/social-media/linkedin/posts/delete', [linkedin_posts_controller::class, 'custom_share_delete'])->middleware(['auth', 'role']);
+Route::get('/test', [linkedin_posts_controller::class, 'test'])->middleware(['auth', 'role']);
 //Routes for create Plan
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => ['auth', 'role']], function () {
     Route::get('create/plan', 'SubscriptionController@createPlan')->name('create.plan');
     Route::post('store/plan', [subscriptionController::class, 'storePlan'])->name('store.plan');
 

@@ -136,7 +136,7 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
@@ -154,14 +154,14 @@
                         <a class="collapse-item" href="blank.html">Blank Page</a>
                     </div>
                 </div>
-            </li>
+            </li> --}}
 
             <!-- Nav Item - Charts -->
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link" href="charts.html">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Charts</span></a>
-            </li>
+            </li> --}}
 
             <li class="nav-item">
                 <a class="nav-link" href="{{ url('dashboard/plans') }}">
@@ -175,15 +175,23 @@
             </li>
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link" href="tables.html">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
+                    <span>Tables</span></a> --}}
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/">
                     <i class="fas fa-home"></i>
                     <span>Retourne a l'accueil</span></a>
+            </li>
+            <li class="nav-item text-center p-3">
+                <form action="{{route('logout')}}" method="POST">
+                    @csrf
+                    
+                    <button class="btn btn danger  text-white">
+                        <i class="fas fa-sign-out text-white"></i>Logout</button></a>
+                </form>
             </li>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

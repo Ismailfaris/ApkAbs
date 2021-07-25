@@ -35,7 +35,7 @@ class PlanController extends Controller
     public function show(int $id, Request $request)
     {
         $plan = Plan::findOrFail($id);
-        // $paymentMethods = \Auth::user()->paymentMethods();
+    // $paymentMethods = \Auth::user()->paymentMethods();
 
         $intent = \Auth::user()->createSetupIntent();
 
