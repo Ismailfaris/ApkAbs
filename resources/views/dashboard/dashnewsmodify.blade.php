@@ -26,7 +26,7 @@
                             <th>Description</th>
                             <th>Actions</th>
                         </tr>
-                    </thead>
+                    </thead> 
 
                     <tbody>
                         @foreach($actualites as $actualite)

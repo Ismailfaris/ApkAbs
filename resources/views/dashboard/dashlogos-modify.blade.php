@@ -49,14 +49,13 @@
                         @foreach($refs as $ref)
                         <tr>
                             <td>
-                                <img class="logos" src="{{ asset('storage/'.$ref->logo) }}" alt="">
+                                <img class="logos" style="padding-left: 30%;width: 60%;" src="{{ asset('storage/'.$ref->logo) }}" alt="">
                             </td>
                             <td>
                                 <p class="logos">{{ $ref['order'] }}</p>
                             </td>
                             <td>{{ $ref['created_at'] }}</td>
                             <td>
-                            <p>wesh wesh</p>
                                 <a href="/dashboard/dashlogos-modifybyid/edit/{{$ref['id'] }}" class="edit" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
                                 <a href="delete/{{$ref['id'] }}" onclick="return confirm('Voulez-vous supprimer cette références ?');" class="delete" title="Delete" data-toggle="tooltip"><i class="fas fa-trash-alt"></i></a>
                             </td>

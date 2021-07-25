@@ -16,7 +16,7 @@
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
         <!-- Favicons -->
-        <link href="{{asset(' assets/img/ico.ico ')}}" rel="icon" />
+        <link href="{{asset(' assets/img/ico.ico')}}" rel="icon" />
         <link href="{{asset(' assets/img/apple-touch-icon.png ')}}" rel="apple-touch-icon" />
         <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
@@ -37,8 +37,10 @@
         <link href="{{asset('assets/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet" />
 
         <!-- Template Main CSS File -->
-        <link href="{{asset('assets/css/style.css')}}" rel="stylesheet" />
         <link href="{{asset('assets/css/style2.css')}}" rel="stylesheet" />
+        <link href="{{asset('assets/css/style.css')}}" rel="stylesheet" />
+        <link rel="icon" href="storage/1543661123118.jpg">
+
     </head>
     <body>
         <section class="container" id="header-section">
@@ -57,7 +59,7 @@
                     <div class="col-3 col-sm-3 col-md-3 col-lg-3">
                     <div class="row">
                         <div class="col-12 col-sm-12 col-md-12 col-lg-1"></div>
-                        <div class="col-12 col-sm-12 col-md-12 col-lg-5"><a href="{{ url('contact') }}"><img src="{{asset('assets/img/joinus.png')}}"  alt=""></a></div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-6"><a href="{{ url('contact') }}"><img src="{{asset('assets/img/joinus.png')}}"  alt=""></a></div>
                         <div class="col-4 col-sm-4 col-md-2 col-lg-1"><a  href="https://www.facebook.com/abscompetences/" target="_blank"><i class="bx bxl-facebook"></i></a></div>
                         <div class="col-4 col-sm-4 col-md-2 col-lg-1"><a href="https://www.linkedin.com/company/abs-competences/about/" target="_blank"><i class="bx bxl-linkedin"></i></a></div>
                         <div class="col-4 col-sm-4 col-md-2 col-lg-1"><a href="https://twitter.com/CompetencesAbs" target="_blank"><i class="bx bxl-twitter"></i></a></div>
@@ -95,7 +97,6 @@
                             <li><a href="{{ url('contact') }}" class="{{ Request::segment(1) === 'contact' ? 'current' : null }}">Contact</a></li>
                             <li><a href="{{ url('locaux') }}" class="{{ Request::segment(1) === 'locaux' ? 'current' : null }}">Locaux</a></li>
                             <li><a href="{{ url('références') }}" class="{{ Request::segment(1) === 'références' ? 'current' : null }}">Références</a></li>
-                            <li><a href="{{ url('références') }}" class="{{ Request::segment(1) === 'références' ? 'current' : null }}">hey</a></li>
                         </ul>
                     </div>
                 </nav>
