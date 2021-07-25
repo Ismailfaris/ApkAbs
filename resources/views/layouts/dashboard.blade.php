@@ -109,16 +109,7 @@
                     </div>
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fab fa-facebook"></i>
-                    <span>Facebook</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fab fa-twitter"></i>
-                    <span>Twitter</span></a>
-            </li>
+            
             <li class="nav-item">
                 <a class="nav-link" href="charts.html">
                     <i class="fas fa-bolt"></i>
@@ -136,6 +127,7 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
+<<<<<<< HEAD
             {{-- <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
@@ -162,6 +154,9 @@
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Charts</span></a>
             </li> --}}
+=======
+            
+>>>>>>> f20dfe32a900768558977ab76b974c6c55da067e
 
             <li class="nav-item">
                 <a class="nav-link" href="{{ url('dashboard/plans') }}">
